@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Savate:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+
 </head>
 <div class="Weather-app">
 <body>
@@ -23,8 +25,8 @@
           <div>
             <h1 class="current-city" id="current-city">Paris</h1>
             <p class="current-details">
-              <span id="current-date"></span>, clear sky <br />
-              Humidity: <strong>44%</strong>, Wind: <strong>4.63km/h</strong>
+              <span id="current-date"></span>,<span id="description"> </span> <br />
+              Humidity: <strong id="humidity">%</strong>, Wind: <strong id="wind-speed"></strong>
             </p>
           </div>
           <div class="current-temperature">
@@ -46,6 +48,7 @@
       <a href="https://meteo-shecodes-app.netlify.app/" target="_blank"
         >hosted on Netlify</a>
 </footer>
+<script src="index.js"></script>
 </body>
 </div>
 </html>
