@@ -7,11 +7,13 @@ function displayTemperature(response) {
   let humidityElement = document.querySelector("#humidity");
   let windSpeedElement = document.querySelector("#wind-speed");
   let currentDateElement = document.querySelector("#current-date");
+  let iconElement = document.querySelector("#icon");
   cityElement.innerHTML = response.data.city;
   descriptionElement.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
   windSpeedElement.innerHTML = `${Math.round(response.data.wind.speed)} km/h`;
   currentDateElement.innerHTML = formatDate(new Date(response.data.time * 1000));
+  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="current-temperature-icon"/>`;
   temperatureElement.innerHTML = temperature;
   
   
