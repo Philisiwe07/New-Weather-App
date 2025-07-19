@@ -17,6 +17,7 @@ function displayTemperature(response) {
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="current-temperature-icon"/>`;
   temperatureElement.innerHTML = temperature;
   
+  getForecast(response.data.city);
   
 }
 
@@ -31,7 +32,7 @@ function search(event) {
   axios.get(apiUrl).then(displayTemperature);
   
 }
-let temperature = 20; // Example temperature value, replace with actual data
+let temperature = 20; 
 function getBackgroundColor(temperature) {
   if (temperature < 0) {
     return "lightblue";
@@ -72,8 +73,38 @@ function formatDate(date) {
 
   let formattedDay = days[day];
   return `${formattedDay} ${hours}:${minutes}`;
+
+}
+function getForecast(city) {
+let apiKey = "t0033d45f1b2356ec4oc18a3a5f2a16d";
+let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+axios.get(apiUrl).then(displayForecast);
 }
 
+
+function displayForecast(response){
+
+let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+let forecastHTML = "";
+days.forEach(function(day) {
+forecastHTML = 
+forecastHTML +`
+ <div class="weather-forecast-day">
+            <div class="weather-forecast-date">${day}</div>
+            <div class="weather-forecast-icon">🌤️</div>
+            <div class="weather-forecast-temperatures">
+              <div class="weather-forecast-temperature">
+                <strong>15º</strong>
+              </div>
+              <div class="weather-forecast-temperature">9º</div>
+            </div>
+          </div>
+`;
+
+});
+let forecastElement = document.querySelector("#forecast");
+forecastElement.innerHTML = forecastHTML;
+}
 let searchForm = document.querySelector(".search-form");
 searchForm.addEventListener("submit", search);
 
@@ -81,3 +112,4 @@ let currentDateELement = document.querySelector("#current-date");
 let currentDate = new Date();
 
 currentDateELement.innerHTML = formatDate(currentDate);
+displayForecast();
