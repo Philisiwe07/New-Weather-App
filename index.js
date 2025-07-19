@@ -8,6 +8,7 @@ function displayTemperature(response) {
   let windSpeedElement = document.querySelector("#wind-speed");
   let currentDateElement = document.querySelector("#current-date");
   let iconElement = document.querySelector("#icon");
+  document.body.style.backgroundColor = getBackgroundColor(temperature);
   cityElement.innerHTML = response.data.city;
   descriptionElement.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
@@ -30,6 +31,21 @@ function search(event) {
   axios.get(apiUrl).then(displayTemperature);
   
 }
+let temperature = 20; // Example temperature value, replace with actual data
+function getBackgroundColor(temperature) {
+  if (temperature < 0) {
+    return "lightblue";
+  } else if (temperature < 15) {
+    return "lightgreen";
+  } else if (temperature < 25) {
+    return "yellow";
+  } else if (temperature < 35) {
+    return "orange";
+  } else {
+    return "red";
+  }
+}
+document.body.style.backgroundColor = getBackgroundColor(temperature);
 
 function formatDate(date) {
   let minutes = date.getMinutes();
