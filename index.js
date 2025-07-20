@@ -86,7 +86,7 @@ function displayForecast(response){
 
 let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 let forecastHTML = "";
- response.data.daily.forEach(function(day,index) {
+ response.data.daily.forEach(function(dayindex) {
   if (index < 5) {
     let date = new Date(day.time * 1000);
     let dayName = days[date.getDay()];
