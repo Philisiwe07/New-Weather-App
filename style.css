@@ -140,20 +140,20 @@ main {
 .weather-forecast-icon{
   width: 48px;
     height: 48px;
-    text-align: center;
+    display: block;
     margin: 0 auto;
     
 }
 .weather-forecast-temperatures {
     text-align: center;
     color: #f65282;
-    margin-bottom: -10px;
+    margin: 0px;
     display: flex;
     justify-content: center;
 }
 
 .weather-forecast-temperature {
-  padding: 0 10px;
+  padding: 0 6px;
 }
 
 .weather-forecast-day {
