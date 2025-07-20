@@ -93,7 +93,7 @@ let forecastHTML = "";
     forecastHTML = forecastHTML + `
       <div class="weather-forecast-day">
         <div class="weather-forecast-date">${dayName}</div>
-        <img src="${day.condition.icon_url}" alt="${day.condition.description}" class="weather-forecast-icon"/></div>
+        <div class="weather-forecast-icon"><img src="${day.condition.icon_url}" alt="${day.condition.description}" class="weather-forecast-icon"/></div>
         </div>
         <div class="weather-forecast-temperatures">
         <div class="weather-forecast-temperature">
@@ -102,13 +102,16 @@ let forecastHTML = "";
         <div class="weather-forecast-temperature">${Math.round(day.temperature.minimum)}º</div>
       </div>
     `;
+  
   }
+
 
 
 });
 let forecastElement = document.querySelector("#forecast");
 forecastElement.innerHTML = forecastHTML;
 }
+
 let searchForm = document.querySelector(".search-form");
 searchForm.addEventListener("submit", search);
 

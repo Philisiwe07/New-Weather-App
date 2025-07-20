@@ -140,7 +140,7 @@ main {
 .weather-forecast-icon{
   width: 48px;
     height: 48px;
-    display: block;
+    text-align: center;
     margin: 0 auto;
     
 }
@@ -157,9 +157,6 @@ main {
 }
 
 .weather-forecast-day {
-  width: 100px;
+  flex: 1;
   text-align: center;
-  font-size: 16px;
-  line-height: 20px;
-  color: rgba(39, 33, 66, 0.4);
 }
