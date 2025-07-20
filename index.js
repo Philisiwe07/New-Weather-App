@@ -86,16 +86,16 @@ function displayForecast(response){
 
 let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 let forecastHTML = "";
- response.data.daily.forEach(function(dayindex) {
+ response.data.daily.forEach(function(day,index) {
   if (index < 5) {
     let date = new Date(day.time * 1000);
     let dayName = days[date.getDay()];
     forecastHTML = forecastHTML + `
       <div class="weather-forecast-day">
         <div class="weather-forecast-date">${dayName}</div>
-        <div class="weather-forecast-icon"><img src="${day.condition.icon_url}" alt="${day.condition.description}" class="weather-forecast-icon"/></div>
-      </div>
-      <div class="weather-forecast-temperatures">
+        <img src="${day.condition.icon_url}" alt="${day.condition.description}" class="weather-forecast-icon"/></div>
+        </div>
+        <div class="weather-forecast-temperatures">
         <div class="weather-forecast-temperature">
           <strong>${Math.round(day.temperature.maximum)}°</strong>
         </div>
